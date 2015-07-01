@@ -28,7 +28,6 @@ exports.add = function* () {
   this.body = {id: id};
   this.status = 201;
 };
-
 exports.update = function* () {
   var tid = this.params.id;
   var task = this.request.body;

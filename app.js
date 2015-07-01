@@ -16,7 +16,7 @@ var config = require('./config');
 var path = require('path');
 var http = require('http');
 var koa = require('koa');
-
+var livereload = require('koa-livereload');
 var app = koa();
 
 /**
@@ -28,7 +28,9 @@ app.use(middlewares.favicon());
  * response time header
  */
 app.use(middlewares.rt());
-
+app.use(livereload({
+  port : 30211
+}));
 /**
  * static file server
  */
