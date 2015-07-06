@@ -17,6 +17,7 @@ var thunkify = require('thunkify-wrap');
 
 exports.insert = function* (task) {
   var id = utility.md5(task.title + crypto.randomBytes(60).toString('hex'));
+  console.log(id);
   yield db.put(id, task);
   return id;
 };

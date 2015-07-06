@@ -3,20 +3,26 @@
  */
 
 var React = require('react');
+var mui = require('../mui');
+var RaisedButton = mui.RaisedButton;
+//var ThemeManager = new mui.Styles.ThemeManager();
 
 var Login = React.createClass({
+  childContextTypes: {
+    muiTheme: React.PropTypes.object
+  },
+
+  getChildContext: function() {
+    return {
+      muiTheme: ThemeManager.getCurrentTheme()
+    };
+  },
 
   render: function() {
     return (
-      <div id="login">
-        <h1>login</h1>
-        <div>
-
-
-        </div>
-      </div>
+        <RaisedButton label="Default" />
     );
-  },
+  }
 
   //_onSave: function (title) {
   //  if (!title.trim()) return;

@@ -17,6 +17,7 @@ var path = require('path');
 var http = require('http');
 var koa = require('koa');
 var livereload = require('koa-livereload');
+var passport = require('koa-passport');
 var app = koa();
 
 /**
@@ -24,13 +25,14 @@ var app = koa();
  */
 app.use(middlewares.favicon());
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 /**
  * response time header
  */
 app.use(middlewares.rt());
-app.use(livereload({
-  port : 30211
-}));
+app.use(livereload({}));
 /**
  * static file server
  */

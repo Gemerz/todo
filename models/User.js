@@ -20,9 +20,8 @@ var post = new Post({
         name: 'John Doe'
     }
 });
+
 // create
 yield post.save();
-
-
 
 

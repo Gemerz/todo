@@ -18,6 +18,7 @@ exports.list = function* () {
 
 exports.add = function* () {
   var title = this.request.body.title;
+
   if (!title) {
     this.status = 400;
     this.body = { success: false, message: 'title required' };
